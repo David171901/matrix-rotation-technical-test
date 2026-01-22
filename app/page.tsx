@@ -2,6 +2,33 @@ import { Description } from '@/components/Description'
 import { Examples } from '@/components/Examples'
 import { MatrixRotationApp } from '@/components/MatrixRotationApp'
 import { H1 } from '@/components/ui'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Prueba Técnica',
+  description:
+    'Rotar matriz NxN en sentido antihorario. Aplicación web interactiva para rotar matrices cuadradas 90 grados en sentido antihorario.',
+  openGraph: {
+    title: 'Prueba Técnica - Rotar Matriz 90° Antihorario',
+    description:
+      'Aplicación web interactiva para rotar matrices cuadradas NxN 90 grados en sentido antihorario.',
+    url: 'https://matrix-rotation-technical-test.vercel.app',
+    images: [
+      {
+        url: 'https://matrix-rotation-technical-test.vercel.app/matrix-rotation.png',
+        width: 1200,
+        height: 630,
+        alt: 'Reto Técnico: Rotar Matriz 90° Anti-Horario',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Prueba Técnica - Rotar Matriz 90° Antihorario',
+    description: 'Rotar matriz NxN en sentido antihorario. Aplicación web interactiva.',
+    images: ['https://matrix-rotation-technical-test.vercel.app/matrix-rotation.png'],
+  },
+}
 
 export default function Home() {
   return (

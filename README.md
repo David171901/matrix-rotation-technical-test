@@ -1,36 +1,119 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Prueba Técnica - Rotar Matriz NxN
 
-## Getting Started
+Aplicación web interactiva para rotar matrices cuadradas NxN 90 grados en sentido antihorario.
 
-First, run the development server:
+![Aplicación de Rotación de Matrices](./public/matrix-rotation-view.png)
+
+## 📋 Descripción
+
+Esta aplicación web permite ingresar dinámicamente una matriz cuadrada NxN en forma de un arreglo de arreglos numéricos y obtener como resultado la misma matriz rotada 90° en sentido antihorario.
+
+## 🚀 Ejemplos
+
+### Ejemplo 1: Matriz 2x2
+
+**Input:**
+```json
+[[1,2], [3,4]]
+```
+
+**Output:**
+```json
+[[2,4], [1,3]]
+```
+
+### Ejemplo 2: Matriz 3x3
+
+**Input:**
+```json
+[[1,2,3], [4,5,6], [7,8,9]]
+```
+
+**Output:**
+```json
+[[3,6,9], [2,5,8], [1,4,7]]
+```
+
+## 🛠️ Tecnologías
+
+- [Next.js](https://nextjs.org) 16.1.4
+- [React](https://react.dev) 19.2.3
+- [TypeScript](https://www.typescriptlang.org)
+- [Tailwind CSS](https://tailwindcss.com) 4
+- [Vitest](https://vitest.dev) para testing
+- [Radix UI](https://www.radix-ui.com) para componentes
+
+## 📦 Instalación
+
+1. Clona el repositorio:
+```bash
+git clone <url-del-repositorio>
+cd matrix-rotation-technical-test
+```
+
+2. Instala las dependencias:
+```bash
+npm install
+# o
+pnpm install
+# o
+yarn install
+```
+
+## 🏃 Ejecución
+
+### Desarrollo
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
+# o
 pnpm dev
-# or
-bun dev
+# o
+yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Producción
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+## 🧪 Testing
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+# Ejecutar tests
+npm run test
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Tests con interfaz UI
+npm run test:ui
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Tests en modo CI
+npm run test:run
 
-## Deploy on Vercel
+# Tests con cobertura
+npm run test:coverage
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📝 Scripts Disponibles
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `dev` - Inicia el servidor de desarrollo
+- `build` - Construye la aplicación para producción
+- `start` - Inicia el servidor de producción
+- `lint` - Ejecuta el linter
+- `format` - Formatea el código con Prettier
+- `format:check` - Verifica el formato del código
+- `test` - Ejecuta los tests en modo watch
+- `test:ui` - Ejecuta los tests con interfaz gráfica
+- `test:run` - Ejecuta los tests una vez
+- `test:coverage` - Genera reporte de cobertura
+
+## 🌐 Demo en Vivo
+
+Visita la aplicación en producción: [https://matrix-rotation-technical-test.vercel.app](https://matrix-rotation-technical-test.vercel.app)
+
+## 📄 Licencia
+
+Este proyecto es una prueba técnica.
