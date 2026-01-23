@@ -11,11 +11,7 @@ import {
   NOT_2D_MATRIX,
   NOT_AN_ARRAY,
 } from '@/constants'
-import {
-  parseMatrixString,
-  processMatrixRotation,
-  rotateMatrix90CounterClockwise,
-} from '@/utils/matrix-rotation'
+import { parseMatrixString, processMatrixRotation, rotateMatrix90CounterClockwise } from '@/utils'
 
 describe('parseMatrixString', () => {
   it('should return empty array when string is empty', () => {
@@ -88,10 +84,6 @@ describe('rotateMatrix90CounterClockwise', () => {
 })
 
 describe('processMatrixRotation', () => {
-  beforeEach(() => {
-    vi.spyOn(console, 'warn').mockImplementation(() => {})
-  })
-
   it('should return empty output when input is empty', () => {
     const result = processMatrixRotation('')
     expect(result).toEqual({ outputMatrix: '', error: null })
@@ -106,7 +98,6 @@ describe('processMatrixRotation', () => {
     const result = processMatrixRotation('invalid json')
     expect(result.outputMatrix).toBe('')
     expect(result.error).toBe(`${INVALID_JSON}. ${INVALID_JSON_EXAMPLE}`)
-    expect(console.warn).toHaveBeenCalled()
   })
 
   it('should return error when input is not an array', () => {

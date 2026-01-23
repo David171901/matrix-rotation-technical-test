@@ -11,7 +11,8 @@ export const NOT_2D_MATRIX =
 export const ELEMENT_NOT_ARRAY = (index: number) =>
   `La fila ${index} no está escrita correctamente. Debe ser una lista de números entre corchetes [ ].`
 
-export const EMPTY_ROW = (index: number) => `La fila ${index} está vacía. Debe tener al menos un número.`
+export const EMPTY_ROW = (index: number) =>
+  `La fila ${index} está vacía. Debe tener al menos un número.`
 
 export const INVALID_NXN_MATRIX = (rowIndex: number, actual: number, expected: number) =>
   `La tabla debe ser cuadrada. Todas las filas deben tener la misma cantidad de números. La fila ${rowIndex} tiene ${actual} número${actual !== 1 ? 's' : ''}, pero debería tener ${expected}.`

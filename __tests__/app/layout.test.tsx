@@ -2,6 +2,8 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 
+import RootLayout from '@/app/layout'
+
 vi.mock('next/font/google', () => ({
   Inter: vi.fn(() => ({
     variable: '--font-inter',
@@ -14,18 +16,16 @@ vi.mock('next/font/google', () => ({
 }))
 
 vi.mock('@/components/ui/sonner', () => ({
-  Toaster: () => <div data-testid="toaster">Toaster</div>,
+  Toaster: () => <div data-testid='toaster'>Toaster</div>,
 }))
 
 vi.mock('@/app/globals.css', () => ({}))
-
-import RootLayout from '@/app/layout'
 
 describe('RootLayout', () => {
   it('should render children correctly', () => {
     render(
       <RootLayout>
-        <div data-testid="test-child">Test Content</div>
+        <div data-testid='test-child'>Test Content</div>
       </RootLayout>
     )
 

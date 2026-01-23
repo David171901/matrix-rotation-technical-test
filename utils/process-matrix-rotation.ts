@@ -11,36 +11,11 @@ import {
   NOT_2D_MATRIX,
   NOT_AN_ARRAY,
 } from '@/constants'
+import { rotateMatrix90CounterClockwise } from './rotate-matrix'
 
-interface MatrixRotationResult {
+export interface MatrixRotationResult {
   outputMatrix: string
   error: string | null
-}
-
-export const parseMatrixString = (matrixString: string): Matrix => {
-  if (!matrixString) return []
-
-  try {
-    const parsed = JSON.parse(matrixString)
-    if (Array.isArray(parsed) && parsed.every((r) => Array.isArray(r))) {
-      return parsed.map((row: unknown[]) =>
-        row.map((v: unknown) => {
-          const num = Number(v)
-          return Number.isNaN(num) ? 0 : num
-        })
-      )
-    }
-    return []
-  } catch {
-    return []
-  }
-}
-
-export function rotateMatrix90CounterClockwise(matrix: Matrix): Matrix {
-  const n = matrix.length
-  return Array.from({ length: n }, (_, r) =>
-    Array.from({ length: n }, (_, c) => matrix[c][n - 1 - r])
-  )
 }
 
 export function processMatrixRotation(inputMatrix: string): MatrixRotationResult {
@@ -52,8 +27,7 @@ export function processMatrixRotation(inputMatrix: string): MatrixRotationResult
   let parsed: unknown
   try {
     parsed = JSON.parse(raw)
-  } catch (error) {
-    console.warn('🚀 ~ processMatrixRotation ~ error:', error)
+  } catch {
     return {
       outputMatrix: '',
       error: `${INVALID_JSON}. ${INVALID_JSON_EXAMPLE}`,
@@ -127,15 +101,3 @@ export function processMatrixRotation(inputMatrix: string): MatrixRotationResult
 
   return { outputMatrix: JSON.stringify(rotated), error: null }
 }
-
-
-// json no validators
-// debe ser un array
-// debe ser un array de 2D
-// [1, 2, 3]
-
-// La matriz debe ser un arreglo de arreglos (2D). El elemento en la posición 2 no es un arreglo.
-// [[1, 2], "texto", [3, 4]]
-
-
-// al elemento de la fila N le falta ciertos elementos

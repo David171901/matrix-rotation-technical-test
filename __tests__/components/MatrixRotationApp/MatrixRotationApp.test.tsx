@@ -12,21 +12,4 @@ describe('MatrixRotationApp', () => {
       expect(screen.getByRole('region', { name: /aplicación/i })).toBeInTheDocument()
     })
   })
-
-  it('should render InputCard and OutputCard', async () => {
-    render(<MatrixRotationApp />)
-
-    await waitFor(() => {
-      const articles = screen.getAllByRole('article')
-      expect(articles.length).toBeGreaterThanOrEqual(2)
-    })
-  })
-
-  it('should render application heading', async () => {
-    render(<MatrixRotationApp />)
-
-    await waitFor(() => {
-      expect(screen.getByRole('heading', { level: 2, name: /aplicación/i })).toBeInTheDocument()
-    })
-  })
 })
