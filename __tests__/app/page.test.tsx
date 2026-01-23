@@ -2,11 +2,11 @@ import React from 'react'
 import { render, screen, waitFor } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 
-vi.mock('@/components/MatrixRotationApp', () => ({
-  MatrixRotationApp: () => <div data-testid="matrix-rotation-app">MatrixRotationApp</div>,
-}))
-
 import Home from '@/app/page'
+
+vi.mock('@/components/MatrixRotationApp', () => ({
+  MatrixRotationApp: () => <div data-testid='matrix-rotation-app'>MatrixRotationApp</div>,
+}))
 
 describe('Home Page', () => {
   it('should render correctly', async () => {

@@ -115,4 +115,27 @@ describe('InputCard', () => {
       { timeout: 2000 }
     )
   })
+
+  it('should clear input when clear button is clicked', async () => {
+    renderWithProvider(<InputCard />)
+
+    await waitFor(() => {
+      const textarea = screen.getByRole('textbox') as HTMLTextAreaElement
+      fireEvent.change(textarea, { target: { value: '[[1,2],[3,4]]' } })
+      expect(textarea.value).toBe('[[1,2],[3,4]]')
+    })
+
+    await waitFor(() => {
+      const clearButton = screen.getByTitle('Limpiar')
+      expect(clearButton).toBeInTheDocument()
+    })
+
+    const clearButton = screen.getByTitle('Limpiar')
+    fireEvent.click(clearButton)
+
+    await waitFor(() => {
+      const textarea = screen.getByRole('textbox') as HTMLTextAreaElement
+      expect(textarea.value).toBe('')
+    })
+  })
 })

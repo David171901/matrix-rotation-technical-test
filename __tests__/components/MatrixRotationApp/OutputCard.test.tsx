@@ -1,16 +1,28 @@
 import React from 'react'
-import { render, screen, waitFor } from '@testing-library/react'
-import { describe, expect, it, vi } from 'vitest'
+import { fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { MatrixRotationAppProvider } from '@/components/MatrixRotationApp/MatrixRotationAppProvider'
 import { OutputCard } from '@/components/MatrixRotationApp/OutputCard'
 import { useMatrixRotationApp } from '@/components/MatrixRotationApp/useMatrixRotationApp'
+
+const mockCopy = vi.fn()
+
+vi.mock('@/hooks/useCopyToClipboard', () => ({
+  useCopyToClipboard: () => ({
+    copy: mockCopy,
+  }),
+}))
 
 const renderWithProvider = (ui: React.ReactElement) => {
   return render(<MatrixRotationAppProvider>{ui}</MatrixRotationAppProvider>)
 }
 
 describe('OutputCard', () => {
+  beforeEach(() => {
+    vi.clearAllMocks()
+  })
+
   it('should render correctly', async () => {
     renderWithProvider(<OutputCard />)
 
@@ -100,6 +112,33 @@ describe('OutputCard', () => {
     await waitFor(() => {
       const textarea = screen.getByRole('textbox') as HTMLTextAreaElement
       expect(textarea).toBeInTheDocument()
+    })
+  })
+
+  it('should call copy when copy button is clicked', async () => {
+    const InputSetter = () => {
+      const { setInputMatrix } = useMatrixRotationApp()
+      React.useEffect(() => {
+        setInputMatrix('[[1,2],[3,4]]')
+      }, [setInputMatrix])
+      return null
+    }
+
+    render(
+      <MatrixRotationAppProvider>
+        <InputSetter />
+        <OutputCard />
+      </MatrixRotationAppProvider>
+    )
+
+    const copyButton = screen.getByTitle('Copiar')
+
+    expect(copyButton).toBeDefined()
+
+    fireEvent.click(copyButton!)
+
+    await waitFor(() => {
+      expect(mockCopy).toHaveBeenCalledTimes(1)
     })
   })
 })

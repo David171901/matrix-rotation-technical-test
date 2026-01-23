@@ -13,25 +13,43 @@ Esta aplicación web permite ingresar dinámicamente una matriz cuadrada NxN en 
 ### Ejemplo 1: Matriz 2x2
 
 **Input:**
+
 ```json
-[[1,2], [3,4]]
+[
+  [1, 2],
+  [3, 4]
+]
 ```
 
 **Output:**
+
 ```json
-[[2,4], [1,3]]
+[
+  [2, 4],
+  [1, 3]
+]
 ```
 
 ### Ejemplo 2: Matriz 3x3
 
 **Input:**
+
 ```json
-[[1,2,3], [4,5,6], [7,8,9]]
+[
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+]
 ```
 
 **Output:**
+
 ```json
-[[3,6,9], [2,5,8], [1,4,7]]
+[
+  [3, 6, 9],
+  [2, 5, 8],
+  [1, 4, 7]
+]
 ```
 
 ## 🛠️ Tecnologías
@@ -46,12 +64,14 @@ Esta aplicación web permite ingresar dinámicamente una matriz cuadrada NxN en 
 ## 📦 Instalación
 
 1. Clona el repositorio:
+
 ```bash
 git clone <url-del-repositorio>
 cd matrix-rotation-technical-test
 ```
 
 2. Instala las dependencias:
+
 ```bash
 npm install
 # o

@@ -1,8 +1,9 @@
+import { Metadata } from 'next'
+
 import { Description } from '@/components/Description'
 import { Examples } from '@/components/Examples'
 import { MatrixRotationApp } from '@/components/MatrixRotationApp'
 import { H1 } from '@/components/ui'
-import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Prueba Técnica',
